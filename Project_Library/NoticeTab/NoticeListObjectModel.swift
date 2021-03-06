@@ -51,7 +51,7 @@
 
 import Foundation
 
-struct NoticeAPIResponse: Codable {
+struct NoticeListResponse: Codable {
     let success: Bool
     let code: String
     let message: String

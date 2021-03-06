@@ -23,3 +23,9 @@ func getNoticeURL(page: Int) -> String {
     
     return rootURL + "/pyxis-api/1/bulletin-boards/1/bulletins?offset=" + String(offset) + "&max=" + String(max)
 }
+
+func getNoticeArticleURL(id: Int) -> String {
+    // https://oasis.ssu.ac.kr/pyxis-api/1/bulletins/1/10303
+    
+    return rootURL + "/pyxis-api/1/bulletins/1/" + String(id)
+}

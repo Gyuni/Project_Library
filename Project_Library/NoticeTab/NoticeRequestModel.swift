@@ -7,15 +7,34 @@
 
 import Foundation
 
-let DidReceiveNoticesNotification: Notification.Name = Notification.Name("DidReceiveNotices")
+enum RequestType: String {
+  case list = "list"
+  case article = "article"
+}
 
-func requestNoticeAPI(page: Int) {
-    
-    print(page)
+let DidReceiveNoticeListNotification: Notification.Name = Notification.Name("DidReceiveNoticeList")
+
+let DidReceiveNoticeArticleNotification: Notification.Name = Notification.Name("DidReceiveNoticeArticle")
+
+func requestNoticeList(page: Int) {
     
     guard let url: URL = URL(string: getNoticeURL(page: page)) else {
         return
     }
+    
+    request(type: .list, url: url)
+}
+
+func requestNoticeArticle(id: Int) {
+    
+    guard let url: URL = URL(string: getNoticeArticleURL(id: id)) else {
+        return
+    }
+    
+    request(type: .article, url: url)
+}
+
+private func request(type: RequestType, url: URL) {
     
     let session: URLSession = URLSession(configuration: .default)
     let dataTask: URLSessionDataTask = session.dataTask(with: url) {
@@ -31,9 +50,21 @@ func requestNoticeAPI(page: Int) {
         }
         
         do {
-            let apiResponse: NoticeAPIResponse = try JSONDecoder().decode(NoticeAPIResponse.self, from: data)
-            
-            NotificationCenter.default.post(name: DidReceiveNoticesNotification, object: nil, userInfo: ["notices":apiResponse])
+            switch type {
+            case .list:
+                let apiResponse: NoticeListResponse = try JSONDecoder().decode(NoticeListResponse.self, from: data)
+                
+                NotificationCenter.default.post(name: DidReceiveNoticeListNotification, object: nil, userInfo: ["noticeList":apiResponse])
+ 
+                
+            case .article:
+                if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    if let data = json["data"] as? [String: Any], let content = data["content"] {
+                        print(content)
+                        NotificationCenter.default.post(name: DidReceiveNoticeArticleNotification, object: nil, userInfo: ["noticeArticle":content])
+                    }
+                }
+            }
             
         } catch(let err) {
             print(err.localizedDescription)

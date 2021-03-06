@@ -41,7 +41,7 @@
 
 import Foundation
 
-struct RoomAPIResponse: Codable {
+struct RoomListResponse: Codable {
     let success: Bool
     let code: String
     let message: String

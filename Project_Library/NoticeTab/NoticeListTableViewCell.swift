@@ -7,12 +7,13 @@
 
 import UIKit
 
-class NoticeTableViewCell: UITableViewCell {
+class NoticeListTableViewCell: UITableViewCell {
     
     let titleLabel: UILabel = UILabel()
     let dateLabel: UILabel = UILabel()
     
-    weak var parnetVC: UIViewController?
+    var notice: Notice?
+    weak var parentVC: UIViewController?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,7 +22,7 @@ class NoticeTableViewCell: UITableViewCell {
         let stackView: UIStackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 12
+        stackView.spacing = 8
         stackView.distribution = .fill
         stackView.alignment = .leading
         stackView.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -38,10 +39,15 @@ class NoticeTableViewCell: UITableViewCell {
         
         // MARK: 타이틀 라벨 선언, 설정, 배치
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textColor = .gray800
+        titleLabel.font = .subtitle2
+        titleLabel.numberOfLines = 2
         stackView.addArrangedSubview(titleLabel)
         
         // MARK: 데이트 라벨 선언, 설정, 배치
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.textColor = .gray500
+        dateLabel.font = .body2
         stackView.addArrangedSubview(dateLabel)
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(pushView(sender:)))
@@ -49,23 +55,11 @@ class NoticeTableViewCell: UITableViewCell {
     }
     
     @objc func pushView(sender: UITapGestureRecognizer) {
-        /*
-        let vc = ThirdViewController()
-        vc.cityName = self.nameLabel.text
         
-        vc.weatherImageView.image = self.weatherImageView.image
+        let noticeArticleVC = NoticeArticleViewController()
+        noticeArticleVC.notice = self.notice
         
-        vc.nameLabel.text = self.nameLabel.text
-        
-        vc.temperatureLabel.text = self.temperatureLabel.text
-        vc.temperatureLabel.textColor = self.temperatureLabel.textColor
-        
-        vc.rainfallProbabilityLabel.text = self.rainfallProbabilityLabel.text
-        vc.rainfallProbabilityLabel.textColor = self.rainfallProbabilityLabel.textColor
-        
-        parent?.navigationController?.pushViewController(vc, animated: true)
- */
-        print("얍")
+        parentVC?.navigationController?.pushViewController(noticeArticleVC, animated: true)
     }
     
     required init?(coder: NSCoder) {

@@ -9,7 +9,7 @@ import Foundation
 
 let DidReceiveRoomsNotification: Notification.Name = Notification.Name("DidReceiveRooms")
 
-func requestRoomAPI() {
+func requestRoomList() {
     
     guard let url: URL = URL(string: getRoomURL()) else {
         return
@@ -29,7 +29,7 @@ func requestRoomAPI() {
         }
         
         do {
-            let apiResponse: RoomAPIResponse = try JSONDecoder().decode(RoomAPIResponse.self, from: data)
+            let apiResponse: RoomListResponse = try JSONDecoder().decode(RoomListResponse.self, from: data)
             
             NotificationCenter.default.post(name: DidReceiveRoomsNotification, object: nil, userInfo: ["rooms":apiResponse])
             

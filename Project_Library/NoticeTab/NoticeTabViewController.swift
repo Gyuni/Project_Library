@@ -23,7 +23,7 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
         self.navigationController?.navigationBar.topItem?.title = "Notice Tab Title"
         self.view.backgroundColor = .white
         
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNoticesNotification(_:)), name: DidReceiveNoticesNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNoticeListNotification(_:)), name: DidReceiveNoticeListNotification, object: nil)
         
         setupView()
     }
@@ -34,9 +34,9 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     @objc
-    func didReceiveNoticesNotification(_ noti: Notification) {
+    func didReceiveNoticeListNotification(_ noti: Notification) {
         
-        guard let response: NoticeAPIResponse = noti.userInfo?["notices"] as? NoticeAPIResponse else { return }
+        guard let response: NoticeListResponse = noti.userInfo?["noticeList"] as? NoticeListResponse else { return }
     
         self.notices += response.data.list
         
@@ -53,11 +53,12 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
     
     private func setupView() {
         
-        //MARK: 테이블 뷰
+        view.backgroundColor = .white000
         let margins = view.layoutMarginsGuide
         
+        //MARK: 테이블 뷰
         noticeTableView.translatesAutoresizingMaskIntoConstraints = false
-        noticeTableView.register(NoticeTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        noticeTableView.register(NoticeListTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
         noticeTableView.dataSource = self
         noticeTableView.delegate = self
         self.view.addSubview(noticeTableView)
@@ -79,10 +80,12 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let notice: Notice = self.notices[indexPath.row]
         
-        let cell: NoticeTableViewCell = noticeTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! NoticeTableViewCell
+        let cell: NoticeListTableViewCell = noticeTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! NoticeListTableViewCell
         
         cell.titleLabel.text = notice.title
         cell.dateLabel.text = notice.dateCreated
+        cell.notice = notice
+        cell.parentVC = self
         
         return cell
     }
@@ -100,7 +103,7 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
                 // 이전 단계 로딩이 다 끝났다면
                 // 다음 단계 로딩 땡겨오기
                 isLoadingComplete = false
-                requestNoticeAPI(page: self.page)
+                requestNoticeList(page: self.page)
                 page += 1
             }
             
