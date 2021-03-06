@@ -57,7 +57,7 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
         let margins = view.layoutMarginsGuide
         
         noticeTableView.translatesAutoresizingMaskIntoConstraints = false
-        noticeTableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        noticeTableView.register(NoticeTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
         noticeTableView.dataSource = self
         noticeTableView.delegate = self
         self.view.addSubview(noticeTableView)
@@ -79,11 +79,10 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let notice: Notice = self.notices[indexPath.row]
         
-        let cell: UITableViewCell = noticeTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
+        let cell: NoticeTableViewCell = noticeTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! NoticeTableViewCell
         
-        cell.textLabel?.text = notice.title
-        cell.detailTextLabel?.text = notice.dateCreated
-        cell.imageView?.image = nil
+        cell.titleLabel.text = notice.title
+        cell.dateLabel.text = notice.dateCreated
         
         return cell
     }
@@ -94,8 +93,8 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
             return
         }
         
-        if self.noticeTableView.contentOffset.y > noticeTableView.contentSize.height - noticeTableView.bounds.size.height {
-            // 바닥에 도착했고
+        if self.noticeTableView.contentOffset.y > noticeTableView.contentSize.height - noticeTableView.bounds.size.height - 100 {
+            // 바닥으로부터 100만큼 위인 지점에 도착했고
             
             if (isLoadingComplete) {
                 // 이전 단계 로딩이 다 끝났다면

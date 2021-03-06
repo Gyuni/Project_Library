@@ -10,6 +10,7 @@
 		538F301125F25B88009C2498 /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F301025F25B88009C2498 /* URLManager.swift */; };
 		538F301625F26163009C2498 /* NoticeRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F301525F26163009C2498 /* NoticeRequestModel.swift */; };
 		538F301A25F26216009C2498 /* NoticeObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F301925F26216009C2498 /* NoticeObjectModel.swift */; };
+		538F301D25F34827009C2498 /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F301C25F34827009C2498 /* NoticeTableViewCell.swift */; };
 		5396713625F224B2005C2160 /* RoomTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5396713525F224B2005C2160 /* RoomTabViewController.swift */; };
 		5396713925F224D1005C2160 /* NoticeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5396713825F224D1005C2160 /* NoticeTabViewController.swift */; };
 		5396714025F22FED005C2160 /* SearchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5396713F25F22FED005C2160 /* SearchTabViewController.swift */; };
@@ -30,6 +31,7 @@
 		538F301025F25B88009C2498 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLManager.swift; path = Project_Library/URLManager.swift; sourceTree = SOURCE_ROOT; };
 		538F301525F26163009C2498 /* NoticeRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRequestModel.swift; sourceTree = "<group>"; };
 		538F301925F26216009C2498 /* NoticeObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeObjectModel.swift; sourceTree = "<group>"; };
+		538F301C25F34827009C2498 /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
 		5396713525F224B2005C2160 /* RoomTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTabViewController.swift; sourceTree = "<group>"; };
 		5396713825F224D1005C2160 /* NoticeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTabViewController.swift; sourceTree = "<group>"; };
 		5396713F25F22FED005C2160 /* SearchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				5396713825F224D1005C2160 /* NoticeTabViewController.swift */,
 				538F301525F26163009C2498 /* NoticeRequestModel.swift */,
 				538F301925F26216009C2498 /* NoticeObjectModel.swift */,
+				538F301C25F34827009C2498 /* NoticeTableViewCell.swift */,
 			);
 			path = NoticeTab;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				538F301125F25B88009C2498 /* URLManager.swift in Sources */,
 				538F301A25F26216009C2498 /* NoticeObjectModel.swift in Sources */,
 				5396713925F224D1005C2160 /* NoticeTabViewController.swift in Sources */,
+				538F301D25F34827009C2498 /* NoticeTableViewCell.swift in Sources */,
 				5396714325F23010005C2160 /* SettingTabViewController.swift in Sources */,
 				5396713625F224B2005C2160 /* RoomTabViewController.swift in Sources */,
 				53E95F7A25F222AC007BF4AB /* ViewController.swift in Sources */,
