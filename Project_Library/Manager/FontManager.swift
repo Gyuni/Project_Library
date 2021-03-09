@@ -30,7 +30,7 @@ extension UIFont {
     }
     
     static var subtitle2: UIFont {
-        return UIFont.systemFont(ofSize: 17, weight: .medium)
+        return UIFont.systemFont(ofSize: 16, weight: .semibold)
     }
     
     static var body1: UIFont {

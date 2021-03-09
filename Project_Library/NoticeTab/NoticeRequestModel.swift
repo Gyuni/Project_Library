@@ -8,8 +8,8 @@
 import Foundation
 
 enum RequestType: String {
-  case list = "list"
-  case article = "article"
+    case list = "list"
+    case article = "article"
 }
 
 let DidReceiveNoticeListNotification: Notification.Name = Notification.Name("DidReceiveNoticeList")
@@ -59,10 +59,10 @@ private func request(type: RequestType, url: URL) {
             case .article:
                 if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     if let data = json["data"] as? [String: Any], let content = data["content"] {
-                        print(content)
                         NotificationCenter.default.post(name: DidReceiveNoticeArticleNotification, object: nil, userInfo: ["noticeArticle":content])
                     }
                 }
+                
             }
             
         } catch(let err) {

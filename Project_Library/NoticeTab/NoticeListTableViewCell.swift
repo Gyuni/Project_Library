@@ -9,6 +9,7 @@ import UIKit
 
 class NoticeListTableViewCell: UITableViewCell {
     
+    let stackView: UIStackView = UIStackView()
     let titleLabel: UILabel = UILabel()
     let dateLabel: UILabel = UILabel()
     
@@ -19,13 +20,12 @@ class NoticeListTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         // MARK: 스택 뷰 선언, 설정, 배치
-        let stackView: UIStackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 12
+        stackView.spacing = 8
         stackView.distribution = .fill
         stackView.alignment = .leading
-        stackView.layoutMargins = UIEdgeInsets(top: 24, left: 16, bottom: 24, right: 16)
+        stackView.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         stackView.isLayoutMarginsRelativeArrangement = true
         
         contentView.addSubview(stackView)

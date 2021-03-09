@@ -29,3 +29,9 @@ func getNoticeArticleURL(id: Int) -> String {
     
     return rootURL + "/pyxis-api/1/bulletins/1/" + String(id)
 }
+
+func getNoticeAttachmentURL(url: String) -> String {
+    // https://oasis.ssu.ac.kr/pyxis-api/attachments/BULLETIN/ca3f8721-56d5-492d-b781-971705c4453b
+    
+    return rootURL + "/pyxis-api" + url
+}

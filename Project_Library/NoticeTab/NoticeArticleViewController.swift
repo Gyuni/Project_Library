@@ -22,13 +22,14 @@ class NoticeArticleViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         self.contentWebView.navigationDelegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNoticeArticleNotification(_:)), name: DidReceiveNoticeArticleNotification, object: nil)
-        
+
         guard let notice: Notice = notice else {
             return
         }
         requestNoticeArticle(id: notice.id)
         
         setupView()
+        print(notice.attachments)
     }
     
     private func setupView() {
@@ -76,7 +77,6 @@ class NoticeArticleViewController: UIViewController, WKNavigationDelegate {
             dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
             dateLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
             dateLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
-            dateLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: -32)
         ])
         
         //MARK: 디바이더
@@ -126,8 +126,7 @@ class NoticeArticleViewController: UIViewController, WKNavigationDelegate {
         decisionHandler(.allow)
       }
     }
-    
-    
+
     @objc
     func didReceiveNoticeArticleNotification(_ noti: Notification) {
         
@@ -137,8 +136,8 @@ class NoticeArticleViewController: UIViewController, WKNavigationDelegate {
         
         DispatchQueue.main.async {
             self.contentWebView.loadHTMLString(headerString + response, baseURL: nil)
-            print(response)
         }
  
     }
+    
 }
