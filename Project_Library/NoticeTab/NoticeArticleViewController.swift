@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import SafariServices
 
 class NoticeArticleViewController: UIViewController, WKNavigationDelegate {
 
@@ -112,7 +113,20 @@ class NoticeArticleViewController: UIViewController, WKNavigationDelegate {
             ])
         }
     }
-
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+      if navigationAction.navigationType == .linkActivated  {
+        if let url = navigationAction.request.url, UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+            decisionHandler(.cancel)
+        } else {
+            decisionHandler(.allow)
+        }
+      } else {
+        decisionHandler(.allow)
+      }
+    }
+    
     
     @objc
     func didReceiveNoticeArticleNotification(_ noti: Notification) {
