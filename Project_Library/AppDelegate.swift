@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white000
         
-        let tabBarController = UITabBarController()
+        let tabBarController = AnimatedTabBarController()
         tabBarController.tabBar.tintColor = .secondary_blue
         tabBarController.tabBar.backgroundColor = .white000
         tabBarController.tabBar.isTranslucent = false
