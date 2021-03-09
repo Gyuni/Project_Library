@@ -30,7 +30,7 @@ extension UIFont {
     }
     
     static var subtitle2: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: .semibold)
+        return UIFont.systemFont(ofSize: 16, weight: .medium)
     }
     
     static var body1: UIFont {
@@ -59,5 +59,17 @@ extension UIFont {
     
     static var caption: UIFont {
         return UIFont.systemFont(ofSize: 13, weight: .regular)
+    }
+    
+    static var widget1: UIFont {
+        return UIFont.systemFont(ofSize: 24, weight: .bold)
+    }
+    
+    static var widget2: UIFont {
+        return UIFont.systemFont(ofSize: 16, weight: .bold)
+    }
+    
+    static var widget3: UIFont {
+        return UIFont.systemFont(ofSize: 14, weight: .medium)
     }
 }

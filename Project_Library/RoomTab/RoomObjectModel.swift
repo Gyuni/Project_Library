@@ -66,6 +66,10 @@ struct Room: Codable {
     let occupied: Int
     let available: Int
     let disablePeriod: String?
+    
+    var capacity: String {
+        return String(available) + "/" + String(activeTotal)
+    }
 }
 
 struct BranchGroup: Codable {

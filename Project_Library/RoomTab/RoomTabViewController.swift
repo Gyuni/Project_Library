@@ -54,15 +54,17 @@ class RoomTabViewController: UIViewController, UICollectionViewDelegate, UIColle
         roomCollectionView.delegate = self
         roomCollectionView.backgroundColor = .white000
         roomCollectionView.register(RoomCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+
         self.view.addSubview(roomCollectionView)
         
         NSLayoutConstraint.activate([
             roomCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             roomCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            roomCollectionView.topAnchor.constraint(equalTo: margins.topAnchor),
+            roomCollectionView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 16),
             roomCollectionView.bottomAnchor.constraint(equalTo: margins.bottomAnchor)
         ])
         
+        roomCollectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         self.roomCollectionView.reloadData()
     }
     
@@ -75,21 +77,52 @@ class RoomTabViewController: UIViewController, UICollectionViewDelegate, UIColle
             return UICollectionViewCell()
         }
     
-        
         let room: Room = self.rooms[indexPath.item]
         cell.nameLabel.text = room.name
-        cell.capacityLabel.text = String(room.occupied)
         
+        cell.capacityLabel.text = room.capacity
+        let attributedCapacityText = NSMutableAttributedString(string: room.capacity)
+        let boldLength = String(room.available).count
+        attributedCapacityText.addAttribute(.font, value: UIFont.widget1, range: NSRange(location: 0, length: boldLength))
+        cell.capacityLabel.attributedText = attributedCapacityText
+        
+        setCellBackgroundColor(cell: cell, room: room)
+
         return cell
+    }
+    
+    private func setCellBackgroundColor(cell: UICollectionViewCell, room: Room) {
+        if room.activeTotal == 0 {
+            cell.contentView.backgroundColor = .gray500
+            return
+        }
+        
+        let congestion: Float = Float(room.available/room.activeTotal)
+        if congestion > 2/3 {
+            cell.contentView.backgroundColor = .systemGreen
+        } else if congestion > 1/3 {
+            cell.contentView.backgroundColor = .systemOrange
+        } else {
+            cell.contentView.backgroundColor = .systemRed
+        }
     }
     
     //셀크기
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let size = (roomCollectionView.frame.width - 24 ) / 3
-        print(size)
+        
+        // 360 아래(아이폰SE 1세대)는 한 라인에 2개 셀, 그 외는 3개 셀
+        // 맥스는 어떡하지?
+        var numberOfCellsInLine: CGFloat
+        
+        if roomCollectionView.frame.width >= 360 {
+            numberOfCellsInLine = 3
+        } else {
+            numberOfCellsInLine = 2
+        }
+        
+        let size = (roomCollectionView.frame.width - 32 - (numberOfCellsInLine-1)*12 ) / numberOfCellsInLine
+        
         return CGSize(width: size, height: size)
-
     }
 
     //위아래 간격

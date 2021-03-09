@@ -22,24 +22,28 @@ class RoomCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        self.contentView.backgroundColor = .systemBlue
+        self.contentView.layer.cornerRadius = 8
         
         capacityLabel.translatesAutoresizingMaskIntoConstraints = false
-        capacityLabel.textColor = .gray800
-        capacityLabel.font = .head2
+        capacityLabel.textColor = .white000
+        capacityLabel.font = .widget2
         contentView.addSubview(capacityLabel)
         NSLayoutConstraint.activate([
             capacityLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            capacityLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
             capacityLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -16)
         ])
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.textColor = .gray700
-        nameLabel.font = .head3
+        nameLabel.textColor = .white000
+        nameLabel.font = .widget3
+        nameLabel.lineBreakMode = .byClipping
+        nameLabel.numberOfLines = 0
         contentView.addSubview(nameLabel)
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
-            nameLabel.bottomAnchor.constraint(equalTo: self.capacityLabel.topAnchor, constant: -16)
+            nameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
+            nameLabel.bottomAnchor.constraint(equalTo: self.capacityLabel.topAnchor, constant: -8)
         ])
         
     }
