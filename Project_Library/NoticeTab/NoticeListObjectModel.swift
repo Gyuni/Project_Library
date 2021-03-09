@@ -84,6 +84,30 @@ struct Notice: Codable {
     let isPersonal: Bool
     let likeCount: Int
     let isMyLike: Bool
+    
+    private static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter
+    }()
+    
+    private static let dateReFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy. MM. dd. HH:mm"
+        return dateFormatter
+    }()
+    
+    var dateFormatted: String {
+        if let date = Notice.dateFormatter.date(from: dateCreated) {
+            return Notice.dateReFormatter.string(from: date)
+        }
+        return ""
+    }
+    
+    var articleInfo: String {
+        return dateFormatted + "  ·  " + "조회 " + String(hitCnt) + "  ·  " + writer
+    }
+    
 }
 
 struct Attachment: Codable {
@@ -93,3 +117,4 @@ struct Attachment: Codable {
     let fileSize: Int
     let originalImageUrl: String
 }
+

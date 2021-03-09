@@ -13,8 +13,8 @@ class RoomTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.topItem?.title = "Room Tab Title"
-        self.view.backgroundColor = .white
+        self.navigationController?.navigationBar.topItem?.title = "열람실"
+        self.view.backgroundColor = .white000
         
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveRoomsNotification(_:)), name: DidReceiveRoomsNotification, object: nil)
     }

@@ -20,17 +20,18 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.topItem?.title = "Notice Tab Title"
-        self.view.backgroundColor = .white
-        
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNoticeListNotification(_:)), name: DidReceiveNoticeListNotification, object: nil)
         
+        requestNoticeList(page: self.page)
+        page += 1
+
         setupView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
+        noticeTableView.reloadData()
     }
     
     @objc
@@ -48,12 +49,17 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
         DispatchQueue.main.async {
             self.noticeTableView.reloadData()
             self.isLoadingComplete = true
+            print("notice list page \(self.page - 1) loaded")
         }
     }
     
     private func setupView() {
+        self.navigationController?.navigationBar.topItem?.title = "공지사항"
+        self.view.backgroundColor = .white000
         
-        view.backgroundColor = .white000
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+
         let margins = view.layoutMarginsGuide
         
         //MARK: 테이블 뷰
@@ -61,6 +67,8 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
         noticeTableView.register(NoticeListTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
         noticeTableView.dataSource = self
         noticeTableView.delegate = self
+        noticeTableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        noticeTableView.separatorColor = .gray300
         self.view.addSubview(noticeTableView)
         
         NSLayoutConstraint.activate([
@@ -83,10 +91,10 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
         let cell: NoticeListTableViewCell = noticeTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! NoticeListTableViewCell
         
         cell.titleLabel.text = notice.title
-        cell.dateLabel.text = notice.dateCreated
+        cell.dateLabel.text = notice.articleInfo
         cell.notice = notice
         cell.parentVC = self
-        
+
         return cell
     }
     

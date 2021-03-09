@@ -22,10 +22,10 @@ class NoticeListTableViewCell: UITableViewCell {
         let stackView: UIStackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 12
         stackView.distribution = .fill
         stackView.alignment = .leading
-        stackView.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        stackView.layoutMargins = UIEdgeInsets(top: 24, left: 16, bottom: 24, right: 16)
         stackView.isLayoutMarginsRelativeArrangement = true
         
         contentView.addSubview(stackView)
@@ -42,12 +42,13 @@ class NoticeListTableViewCell: UITableViewCell {
         titleLabel.textColor = .gray800
         titleLabel.font = .subtitle2
         titleLabel.numberOfLines = 2
+        titleLabel.lineBreakMode = .byWordWrapping
         stackView.addArrangedSubview(titleLabel)
         
         // MARK: 데이트 라벨 선언, 설정, 배치
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        dateLabel.textColor = .gray500
-        dateLabel.font = .body2
+        dateLabel.textColor = .gray600
+        dateLabel.font = .caption
         stackView.addArrangedSubview(dateLabel)
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(pushView(sender:)))

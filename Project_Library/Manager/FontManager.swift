@@ -8,6 +8,11 @@
 import UIKit
 
 extension UIFont {
+    
+    static var head1: UIFont {
+        return UIFont.systemFont(ofSize: 30, weight: .bold)
+    }
+    
     static var head2: UIFont {
         return UIFont.systemFont(ofSize: 18, weight: .regular)
     }
@@ -21,11 +26,11 @@ extension UIFont {
     }
     
     static var subtitle1: UIFont {
-        return UIFont.systemFont(ofSize: 17, weight: .semibold)
+        return UIFont.systemFont(ofSize: 18, weight: .semibold)
     }
     
     static var subtitle2: UIFont {
-        return UIFont.systemFont(ofSize: 17, weight: .semibold)
+        return UIFont.systemFont(ofSize: 17, weight: .medium)
     }
     
     static var body1: UIFont {
@@ -53,6 +58,6 @@ extension UIFont {
     }
     
     static var caption: UIFont {
-        return UIFont.systemFont(ofSize: 12, weight: .light)
+        return UIFont.systemFont(ofSize: 13, weight: .regular)
     }
 }

@@ -13,8 +13,8 @@ class SearchTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.topItem?.title = "Search Tab Title"
-        self.view.backgroundColor = .white
+        self.navigationController?.navigationBar.topItem?.title = "도서검색"
+        self.view.backgroundColor = .white000
     }
     
 

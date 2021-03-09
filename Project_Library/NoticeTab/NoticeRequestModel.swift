@@ -13,7 +13,6 @@ enum RequestType: String {
 }
 
 let DidReceiveNoticeListNotification: Notification.Name = Notification.Name("DidReceiveNoticeList")
-
 let DidReceiveNoticeArticleNotification: Notification.Name = Notification.Name("DidReceiveNoticeArticle")
 
 func requestNoticeList(page: Int) {

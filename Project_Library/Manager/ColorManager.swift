@@ -57,6 +57,10 @@ extension UIColor {
         return fetchColor(#function)
     }
     
+    static var secondary_blue: UIColor {
+        return fetchColor(#function)
+    }
+    
     private static func fetchColor(_ name: String) -> UIColor {
             guard let color = UIColor(named: name) else {
                 return .red

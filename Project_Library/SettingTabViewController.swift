@@ -13,8 +13,8 @@ class SettingTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.topItem?.title = "Setting Tab Title"
-        self.view.backgroundColor = .white
+        self.navigationController?.navigationBar.topItem?.title = "설정"
+        self.view.backgroundColor = .white000
     }
     
 
