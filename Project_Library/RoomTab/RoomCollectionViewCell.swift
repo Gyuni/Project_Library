@@ -43,7 +43,7 @@ class RoomCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
             nameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
-            nameLabel.bottomAnchor.constraint(equalTo: self.capacityLabel.topAnchor, constant: -8)
+            nameLabel.bottomAnchor.constraint(equalTo: self.capacityLabel.topAnchor, constant: -4)
         ])
         
     }

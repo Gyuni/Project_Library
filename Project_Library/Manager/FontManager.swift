@@ -62,11 +62,11 @@ extension UIFont {
     }
     
     static var widget1: UIFont {
-        return UIFont.systemFont(ofSize: 24, weight: .bold)
+        return UIFont.systemFont(ofSize: 30, weight: .bold)
     }
     
     static var widget2: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: .bold)
+        return UIFont.systemFont(ofSize: 18, weight: .bold)
     }
     
     static var widget3: UIFont {

@@ -61,6 +61,30 @@ extension UIColor {
         return fetchColor(#function)
     }
     
+    static var room_background_red: UIColor {
+        return fetchColor(#function)
+    }
+    
+    static var room_text_red: UIColor {
+        return fetchColor(#function)
+    }
+    
+    static var room_background_yellow: UIColor {
+        return fetchColor(#function)
+    }
+    
+    static var room_text_yellow: UIColor {
+        return fetchColor(#function)
+    }
+    
+    static var room_background_green: UIColor {
+        return fetchColor(#function)
+    }
+    
+    static var room_text_green: UIColor {
+        return fetchColor(#function)
+    }
+    
     private static func fetchColor(_ name: String) -> UIColor {
             guard let color = UIColor(named: name) else {
                 return .red
