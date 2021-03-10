@@ -13,6 +13,8 @@
 		5310C36B25F4E394002C9D17 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5310C36A25F4E394002C9D17 /* Icons.xcassets */; };
 		5310C36E25F78E4F002C9D17 /* RoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310C36D25F78E4F002C9D17 /* RoomCollectionViewCell.swift */; };
 		5310C37225F7D554002C9D17 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310C37125F7D554002C9D17 /* AnimatedTabBarController.swift */; };
+		5310C37625F91068002C9D17 /* SearchListObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310C37525F91068002C9D17 /* SearchListObjectModel.swift */; };
+		5310C37A25F9151B002C9D17 /* SearchRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310C37925F9151A002C9D17 /* SearchRequestModel.swift */; };
 		537E0CCA25F3DC0100438187 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537E0CC925F3DC0100438187 /* FontManager.swift */; };
 		538F301125F25B88009C2498 /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F301025F25B88009C2498 /* URLManager.swift */; };
 		538F301625F26163009C2498 /* NoticeRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F301525F26163009C2498 /* NoticeRequestModel.swift */; };
@@ -42,6 +44,8 @@
 		5310C36A25F4E394002C9D17 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		5310C36D25F78E4F002C9D17 /* RoomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCollectionViewCell.swift; sourceTree = "<group>"; };
 		5310C37125F7D554002C9D17 /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
+		5310C37525F91068002C9D17 /* SearchListObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListObjectModel.swift; sourceTree = "<group>"; };
+		5310C37925F9151A002C9D17 /* SearchRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequestModel.swift; sourceTree = "<group>"; };
 		537E0CC925F3DC0100438187 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		538F301025F25B88009C2498 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLManager.swift; path = Project_Library/Manager/URLManager.swift; sourceTree = SOURCE_ROOT; };
 		538F301525F26163009C2498 /* NoticeRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRequestModel.swift; sourceTree = "<group>"; };
@@ -82,6 +86,16 @@
 				5F14470ED7A2EF2638310BFA /* Pods_Project_Library.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5310C37425F90FD0002C9D17 /* SearchTab */ = {
+			isa = PBXGroup;
+			children = (
+				5396713F25F22FED005C2160 /* SearchTabViewController.swift */,
+				5310C37925F9151A002C9D17 /* SearchRequestModel.swift */,
+				5310C37525F91068002C9D17 /* SearchListObjectModel.swift */,
+			);
+			path = SearchTab;
 			sourceTree = "<group>";
 		};
 		537E0CC625F3D88A00438187 /* Manager */ = {
@@ -139,10 +153,10 @@
 		53E95F7425F222AC007BF4AB /* Project_Library */ = {
 			isa = PBXGroup;
 			children = (
+				5310C37425F90FD0002C9D17 /* SearchTab */,
 				538F301425F2613B009C2498 /* NoticeTab */,
 				538F300E25F23B62009C2498 /* RoomTab */,
 				537E0CC625F3D88A00438187 /* Manager */,
-				5396713F25F22FED005C2160 /* SearchTabViewController.swift */,
 				5396714225F23010005C2160 /* SettingTabViewController.swift */,
 				53E95F7525F222AC007BF4AB /* AppDelegate.swift */,
 				5310C37125F7D554002C9D17 /* AnimatedTabBarController.swift */,
@@ -289,10 +303,12 @@
 				538F301A25F26216009C2498 /* NoticeListObjectModel.swift in Sources */,
 				5396713925F224D1005C2160 /* NoticeTabViewController.swift in Sources */,
 				5310C36325F3E11B002C9D17 /* NoticeArticleViewController.swift in Sources */,
+				5310C37A25F9151B002C9D17 /* SearchRequestModel.swift in Sources */,
 				538F301D25F34827009C2498 /* NoticeListTableViewCell.swift in Sources */,
 				5310C37225F7D554002C9D17 /* AnimatedTabBarController.swift in Sources */,
 				5396714325F23010005C2160 /* SettingTabViewController.swift in Sources */,
 				5310C36025F3DF1B002C9D17 /* ColorManager.swift in Sources */,
+				5310C37625F91068002C9D17 /* SearchListObjectModel.swift in Sources */,
 				5396713625F224B2005C2160 /* RoomTabViewController.swift in Sources */,
 				53E95F7A25F222AC007BF4AB /* ViewController.swift in Sources */,
 				53E95F7625F222AC007BF4AB /* AppDelegate.swift in Sources */,

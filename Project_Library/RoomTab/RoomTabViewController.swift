@@ -14,7 +14,7 @@ class RoomTabViewController: UIViewController, UICollectionViewDelegate, UIColle
     let roomCollectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
     let cellIdentifier: String = "roomCell"
-    let cellSize = 110
+    let cellSize = 120
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,12 +106,11 @@ class RoomTabViewController: UIViewController, UICollectionViewDelegate, UIColle
             return
         }
         
-        let congestion: Float = Float(room.available)/Float(room.activeTotal)
-        if congestion > 2/3 {
+        if room.congestion > 2/3 {
             cell.contentView.backgroundColor = .room_background_red
             cell.nameLabel.textColor = .room_text_red
             cell.capacityLabel.textColor = .room_text_red
-        } else if congestion > 1/3 {
+        } else if room.congestion > 1/3 {
             cell.contentView.backgroundColor = .room_background_yellow
             cell.nameLabel.textColor = .room_text_yellow
             cell.capacityLabel.textColor = .room_text_yellow

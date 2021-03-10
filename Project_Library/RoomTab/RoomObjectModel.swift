@@ -70,6 +70,10 @@ struct Room: Codable {
     var capacity: String {
         return String(available) + "/" + String(activeTotal)
     }
+    
+    var congestion: Float {
+        return Float(occupied)/Float(activeTotal)
+    }
 }
 
 struct BranchGroup: Codable {

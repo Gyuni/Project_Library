@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RequestType: String {
+enum NoticeRequestType: String {
     case list = "list"
     case article = "article"
 }
@@ -33,7 +33,7 @@ func requestNoticeArticle(id: Int) {
     request(type: .article, url: url)
 }
 
-private func request(type: RequestType, url: URL) {
+private func request(type: NoticeRequestType, url: URL) {
     
     let session: URLSession = URLSession(configuration: .default)
     let dataTask: URLSessionDataTask = session.dataTask(with: url) {

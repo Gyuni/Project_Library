@@ -35,3 +35,23 @@ func getNoticeAttachmentURL(url: String) -> String {
     
     return rootURL + "/pyxis-api" + url
 }
+
+func getSearchURL(keyword: String, page: Int) -> String {
+    // https://oasis.ssu.ac.kr/pyxis-api/1/collections/(type)/search?all=k|a|(검색어)&max=(max)&offset=(offset)
+    
+    let type: Int = 2
+    let max: Int = 20
+    let offset: Int = page*max
+
+    let url: String = rootURL + "/pyxis-api/1/collections/" + String(type) + "/search?all=k|a|" + keyword + "&max=" + String(max) + "&offset=" + String(offset)
+    
+    let encodedUrl = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    
+    if let unwrappedUrl = encodedUrl {
+        return unwrappedUrl
+    } else {
+        print("url encoding error")
+        return "error"
+    }
+
+}
