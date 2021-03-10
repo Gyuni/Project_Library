@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     

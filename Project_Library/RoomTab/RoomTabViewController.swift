@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 class RoomTabViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
