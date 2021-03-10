@@ -55,6 +55,7 @@ private func request(type: SearchRequestType, url: URL) {
             
         } catch(let err) {
             print(err.localizedDescription)
+            SearchResultViewController.isLoadingComplete = true
         }
     }
     

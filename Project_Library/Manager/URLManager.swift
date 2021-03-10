@@ -53,5 +53,10 @@ func getSearchURL(keyword: String, page: Int) -> String {
         print("url encoding error")
         return "error"
     }
+}
 
+func getBookThumbnailURL(url: String) -> String {
+    // https://oasis.ssu.ac.kr/pyxis-api/attachments/biblio/thumbnails/69ec9e00-cc4a-2be9-e054-002128e7f09a
+    
+    return rootURL + "/pyxis-api" + url
 }

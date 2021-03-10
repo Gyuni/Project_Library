@@ -15,6 +15,7 @@
 		5310C37225F7D554002C9D17 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310C37125F7D554002C9D17 /* AnimatedTabBarController.swift */; };
 		5310C37625F91068002C9D17 /* SearchListObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310C37525F91068002C9D17 /* SearchListObjectModel.swift */; };
 		5310C37A25F9151B002C9D17 /* SearchRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310C37925F9151A002C9D17 /* SearchRequestModel.swift */; };
+		5310C38525F92D84002C9D17 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310C38425F92D84002C9D17 /* SearchResultViewController.swift */; };
 		537E0CCA25F3DC0100438187 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537E0CC925F3DC0100438187 /* FontManager.swift */; };
 		538F301125F25B88009C2498 /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F301025F25B88009C2498 /* URLManager.swift */; };
 		538F301625F26163009C2498 /* NoticeRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F301525F26163009C2498 /* NoticeRequestModel.swift */; };
@@ -43,6 +44,7 @@
 		5310C37125F7D554002C9D17 /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
 		5310C37525F91068002C9D17 /* SearchListObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListObjectModel.swift; sourceTree = "<group>"; };
 		5310C37925F9151A002C9D17 /* SearchRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequestModel.swift; sourceTree = "<group>"; };
+		5310C38425F92D84002C9D17 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResultViewController.swift; path = Project_Library/SearchTab/SearchResultViewController.swift; sourceTree = "<group>"; };
 		537E0CC925F3DC0100438187 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		538F301025F25B88009C2498 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLManager.swift; path = Project_Library/Manager/URLManager.swift; sourceTree = SOURCE_ROOT; };
 		538F301525F26163009C2498 /* NoticeRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRequestModel.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		53E95F6925F222AC007BF4AB = {
 			isa = PBXGroup;
 			children = (
+				5310C38425F92D84002C9D17 /* SearchResultViewController.swift */,
 				53E95F7425F222AC007BF4AB /* Project_Library */,
 				53E95F7325F222AC007BF4AB /* Products */,
 			);
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5396714A25F23886005C2160 /* RoomRequestModel.swift in Sources */,
+				5310C38525F92D84002C9D17 /* SearchResultViewController.swift in Sources */,
 				5396714625F2338D005C2160 /* RoomObjectModel.swift in Sources */,
 				5310C36E25F78E4F002C9D17 /* RoomCollectionViewCell.swift in Sources */,
 				538F301125F25B88009C2498 /* URLManager.swift in Sources */,

@@ -13,26 +13,22 @@ class SearchTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSearchListNotification(_:)), name: DidReceiveSearchListNotification, object: nil)
-        
-        requestSearchList(keyword: "영어", page: 0)
-        
+
         setupView()
     }
 
     private func setupView() {
         self.navigationController?.navigationBar.topItem?.title = "도서검색"
         self.view.backgroundColor = .white000
-    }
-    
-    @objc
-    func didReceiveSearchListNotification(_ noti: Notification) {
         
-        guard let response: SearchListResponse = noti.userInfo?["searchList"] as? SearchListResponse else { return }
-    
-        print(response)
-
+        let searchResultViewController = SearchResultViewController()
+        let searchController = UISearchController(searchResultsController: searchResultViewController)
+        searchController.searchBar.delegate = searchResultViewController
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "도서 제목을 입력해주세요."
+        
+        self.navigationItem.searchController = searchController
     }
     
 }
