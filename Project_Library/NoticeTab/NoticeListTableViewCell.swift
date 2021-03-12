@@ -19,7 +19,7 @@ class NoticeListTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        // MARK: 스택 뷰 선언, 설정, 배치
+        // MARK: 스택 뷰 설정, 배치
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 8

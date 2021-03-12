@@ -27,6 +27,7 @@
 		5396714325F23010005C2160 /* SettingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5396714225F23010005C2160 /* SettingTabViewController.swift */; };
 		5396714625F2338D005C2160 /* RoomObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5396714525F2338D005C2160 /* RoomObjectModel.swift */; };
 		5396714A25F23886005C2160 /* RoomRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5396714925F23886005C2160 /* RoomRequestModel.swift */; };
+		53B9A8B025FB098D00F983BE /* SearchListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B9A8AF25FB098D00F983BE /* SearchListTableViewCell.swift */; };
 		53D52B7A25F3D627006CEF9B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D52B7925F3D626006CEF9B /* Colors.xcassets */; };
 		53E95F7625F222AC007BF4AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E95F7525F222AC007BF4AB /* AppDelegate.swift */; };
 		53E95F7A25F222AC007BF4AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E95F7925F222AC007BF4AB /* ViewController.swift */; };
@@ -44,7 +45,7 @@
 		5310C37125F7D554002C9D17 /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
 		5310C37525F91068002C9D17 /* SearchListObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListObjectModel.swift; sourceTree = "<group>"; };
 		5310C37925F9151A002C9D17 /* SearchRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequestModel.swift; sourceTree = "<group>"; };
-		5310C38425F92D84002C9D17 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResultViewController.swift; path = Project_Library/SearchTab/SearchResultViewController.swift; sourceTree = "<group>"; };
+		5310C38425F92D84002C9D17 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		537E0CC925F3DC0100438187 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		538F301025F25B88009C2498 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLManager.swift; path = Project_Library/Manager/URLManager.swift; sourceTree = SOURCE_ROOT; };
 		538F301525F26163009C2498 /* NoticeRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRequestModel.swift; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		5396714225F23010005C2160 /* SettingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTabViewController.swift; sourceTree = "<group>"; };
 		5396714525F2338D005C2160 /* RoomObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomObjectModel.swift; sourceTree = "<group>"; };
 		5396714925F23886005C2160 /* RoomRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRequestModel.swift; sourceTree = "<group>"; };
+		53B9A8AF25FB098D00F983BE /* SearchListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListTableViewCell.swift; sourceTree = "<group>"; };
 		53D52B7925F3D626006CEF9B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		53E95F7225F222AC007BF4AB /* Project_Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_Library.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E95F7525F222AC007BF4AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,8 @@
 		5310C37425F90FD0002C9D17 /* SearchTab */ = {
 			isa = PBXGroup;
 			children = (
+				5310C38425F92D84002C9D17 /* SearchResultViewController.swift */,
+				53B9A8AF25FB098D00F983BE /* SearchListTableViewCell.swift */,
 				5396713F25F22FED005C2160 /* SearchTabViewController.swift */,
 				5310C37925F9151A002C9D17 /* SearchRequestModel.swift */,
 				5310C37525F91068002C9D17 /* SearchListObjectModel.swift */,
@@ -124,7 +128,6 @@
 		53E95F6925F222AC007BF4AB = {
 			isa = PBXGroup;
 			children = (
-				5310C38425F92D84002C9D17 /* SearchResultViewController.swift */,
 				53E95F7425F222AC007BF4AB /* Project_Library */,
 				53E95F7325F222AC007BF4AB /* Products */,
 			);
@@ -250,6 +253,7 @@
 				53E95F7625F222AC007BF4AB /* AppDelegate.swift in Sources */,
 				537E0CCA25F3DC0100438187 /* FontManager.swift in Sources */,
 				5310C36725F3EDEE002C9D17 /* NoticeArticleObjectModule.swift in Sources */,
+				53B9A8B025FB098D00F983BE /* SearchListTableViewCell.swift in Sources */,
 				5396714025F22FED005C2160 /* SearchTabViewController.swift in Sources */,
 				538F301625F26163009C2498 /* NoticeRequestModel.swift in Sources */,
 			);

@@ -55,7 +55,7 @@ class SearchResultViewController: UIViewController, UISearchBarDelegate, UITable
         
         //MARK: 테이블 뷰
         searchTableView.translatesAutoresizingMaskIntoConstraints = false
-        searchTableView.register(NoticeListTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        searchTableView.register(SearchListTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
         searchTableView.dataSource = self
         searchTableView.delegate = self
         searchTableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -92,13 +92,12 @@ class SearchResultViewController: UIViewController, UISearchBarDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let book: Book = self.books[indexPath.row]
         
-        var cell: UITableViewCell = searchTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
+        let cell: SearchListTableViewCell = searchTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! SearchListTableViewCell
         
-        cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle
-                               , reuseIdentifier: cellIdentifier)
-        cell.textLabel?.text = book.titleStatement
-        cell.detailTextLabel?.text = book.author
-        cell.imageView?.image = nil
+        cell.thumbnailImage.image = nil
+        cell.titleLabel.text = book.titleStatement
+        cell.authorLabel.text = book.author
+        cell.publicationLabel.text = book.publication
         
         DispatchQueue.global().async {
             guard let thumbnailUrl: String = book.thumbnailUrl,
@@ -108,7 +107,7 @@ class SearchResultViewController: UIViewController, UISearchBarDelegate, UITable
             DispatchQueue.main.async {
                 if let index: IndexPath = tableView.indexPath(for: cell) {
                     if index.row == indexPath.row {
-                        cell.imageView?.image = UIImage(data: imageData)
+                        cell.thumbnailImage.image = UIImage(data: imageData)
                         cell.setNeedsLayout()
                         cell.layoutIfNeeded()
                     }

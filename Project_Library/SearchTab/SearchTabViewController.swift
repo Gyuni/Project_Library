@@ -19,6 +19,7 @@ class SearchTabViewController: UIViewController {
 
     private func setupView() {
         self.navigationController?.navigationBar.topItem?.title = "도서검색"
+        self.navigationController?.navigationBar.tintColor = .secondary_blue
         self.view.backgroundColor = .white000
         
         let searchResultViewController = SearchResultViewController()
