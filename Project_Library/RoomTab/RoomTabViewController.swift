@@ -47,7 +47,6 @@ class RoomTabViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.navigationController?.navigationBar.topItem?.title = "열람실"
         self.view.backgroundColor = .white000
         
-        // layout.scrollDirection = .horizontal
         roomCollectionView.translatesAutoresizingMaskIntoConstraints = false
         roomCollectionView.setCollectionViewLayout(layout, animated: true)
         roomCollectionView.dataSource = self
@@ -120,23 +119,8 @@ class RoomTabViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
     
-    //셀크기
+    // 셀 크기
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        /*
-        // 360 아래(아이폰SE 1세대)는 한 라인에 2개 셀, 그 외는 3개 셀
-        // 맥스는 어떡하지?
-        var numberOfCellsInLine: CGFloat
-        
-        if roomCollectionView.frame.width >= 360 {
-            numberOfCellsInLine = 3
-        } else {
-            numberOfCellsInLine = 2
-        }
-        
-        let size = (roomCollectionView.frame.width - 32 - (numberOfCellsInLine-1)*12 ) / numberOfCellsInLine
-        */
-        
         
         return CGSize(width: cellSize, height: cellSize)
     }

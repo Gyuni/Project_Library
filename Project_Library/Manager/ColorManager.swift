@@ -61,6 +61,10 @@ extension UIColor {
         return fetchColor(#function)
     }
     
+    static var pressed_blue: UIColor {
+        return fetchColor(#function)
+    }
+    
     static var room_background_red: UIColor {
         return fetchColor(#function)
     }

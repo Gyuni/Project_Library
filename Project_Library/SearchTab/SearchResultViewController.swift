@@ -22,7 +22,7 @@ class SearchResultViewController: UIViewController, UISearchBarDelegate, UITable
     var isReachedFinalPage: Bool = false
     var page: Int = 0
     var keyword: String = String()
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,22 +52,18 @@ class SearchResultViewController: UIViewController, UISearchBarDelegate, UITable
 
     private func setupView() {
         self.view.backgroundColor = .white000
-        
+                
         //MARK: 테이블 뷰
+        searchTableView.frame = view.bounds
         searchTableView.translatesAutoresizingMaskIntoConstraints = false
         searchTableView.register(SearchListTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
         searchTableView.dataSource = self
         searchTableView.delegate = self
         searchTableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         searchTableView.separatorColor = .gray300
+        searchTableView.tableFooterView = UIView()
+
         self.view.addSubview(searchTableView)
-        
-        NSLayoutConstraint.activate([
-            searchTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            searchTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            searchTableView.topAnchor.constraint(equalTo: view.topAnchor),
-            searchTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
         
         self.searchTableView.reloadData()
     }
@@ -98,6 +94,8 @@ class SearchResultViewController: UIViewController, UISearchBarDelegate, UITable
         cell.titleLabel.text = book.titleStatement
         cell.authorLabel.text = book.author
         cell.publicationLabel.text = book.publication
+        cell.parentVC = self
+        cell.book = book
         
         DispatchQueue.global().async {
             guard let thumbnailUrl: String = book.thumbnailUrl,
@@ -135,9 +133,7 @@ class SearchResultViewController: UIViewController, UISearchBarDelegate, UITable
                 page += 1
             }
             
-            // 여기 이 위치에 굳이 reloadData()는 없어도 될 것 같음
-            // 그래도 혹시 모르니 주석처리
-            // searchTableView.reloadData()
+
         }
     }
 

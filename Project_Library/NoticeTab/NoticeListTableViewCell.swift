@@ -14,7 +14,7 @@ class NoticeListTableViewCell: UITableViewCell {
     let dateLabel: UILabel = UILabel()
     
     var notice: Notice?
-    weak var parentVC: UIViewController?
+    var parentVC: UIViewController?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -37,7 +37,7 @@ class NoticeListTableViewCell: UITableViewCell {
             stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
         ])
         
-        // MARK: 타이틀 라벨 선언, 설정, 배치
+        // MARK: 타이틀 라벨, 설정, 배치
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textColor = .gray800
         titleLabel.font = .subtitle2
@@ -45,7 +45,7 @@ class NoticeListTableViewCell: UITableViewCell {
         titleLabel.lineBreakMode = .byWordWrapping
         stackView.addArrangedSubview(titleLabel)
         
-        // MARK: 데이트 라벨 선언, 설정, 배치
+        // MARK: 데이트 라벨, 설정, 배치
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         dateLabel.textColor = .gray600
         dateLabel.font = .caption
@@ -69,13 +69,10 @@ class NoticeListTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

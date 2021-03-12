@@ -153,6 +153,30 @@ struct BranchVolume: Codable {
     let cState: String?
     let isSubscribed: Bool?
     let hasItem: Bool?
+    var state: String {
+        
+        var state: String = ""
+        
+        if let cState = cState {
+            state.append(cState + " · ")
+        } else {
+            state.append("- · ")
+        }
+        
+        if let name = name {
+            state.append(name + " · ")
+        } else {
+            state.append("- · ")
+        }
+        
+        if let volume = volume {
+            state.append(volume)
+        } else {
+            state.append("-")
+        }
+        
+        return state
+    }
 }
 
 struct Similar: Codable {

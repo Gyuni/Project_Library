@@ -16,6 +16,9 @@ class SearchListTableViewCell: UITableViewCell {
     let publicationLabel: UILabel = UILabel()
     let thumbnailImage: UIImageView = UIImageView()
     
+    var book: Book?
+    var parentVC: UIViewController?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -43,6 +46,7 @@ class SearchListTableViewCell: UITableViewCell {
         thumbnailImage.layer.cornerRadius = 8
         thumbnailImage.clipsToBounds = true
         thumbnailImage.contentMode = .scaleAspectFill
+        thumbnailImage.backgroundColor = .gray100
         NSLayoutConstraint.activate([
             thumbnailImage.heightAnchor.constraint(equalToConstant: 105),
             thumbnailImage.widthAnchor.constraint(equalToConstant: 75)
@@ -84,6 +88,18 @@ class SearchListTableViewCell: UITableViewCell {
         publicationLabel.font = .body2
         publicationLabel.textColor = .gray600
         insideStackView.addArrangedSubview(publicationLabel)
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(presentView(sender:)))
+        self.addGestureRecognizer(gesture)
+
+    }
+    
+    @objc func presentView(sender: UITapGestureRecognizer) {
+        
+        let bookDetailVC = BookDetailViewController()
+        bookDetailVC.book = self.book
+        bookDetailVC.thumbnailImage.image = self.thumbnailImage.image
+        parentVC?.present(bookDetailVC, animated: true)
     }
     
     required init?(coder: NSCoder) {
@@ -92,13 +108,10 @@ class SearchListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

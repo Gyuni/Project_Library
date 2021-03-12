@@ -43,14 +43,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         searchTabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0);
         searchTabNavController.tabBarItem = searchTabBarItem
         
+        /*
         let settingTabVC = SettingTabViewController()
         let settingTabNavController = UINavigationController(rootViewController: settingTabVC)
         setNavControllerStyle(navController: settingTabNavController)
         let settingTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "setting_tab_unselected"), selectedImage: UIImage(named: "setting_tab_selected"))
         settingTabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0);
         settingTabNavController.tabBarItem = settingTabBarItem
-        
-        tabBarController.viewControllers = [roomTabNavController, noticeTabNavController, searchTabNavController, settingTabNavController]
+        */
+        tabBarController.viewControllers = [roomTabNavController, noticeTabNavController, searchTabNavController]
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
@@ -63,7 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navController.navigationBar.backgroundColor = .white000
         navController.navigationBar.tintColor = .secondary_blue
         navController.navigationBar.isTranslucent = false
-        // navController.navigationBar.shadowImage = UIImage()
         navController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray800]
         navController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.gray800]
         navController.navigationBar.largeTitleTextAttributes = [.font: UIFont.head1]

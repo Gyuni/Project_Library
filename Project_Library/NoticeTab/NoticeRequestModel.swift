@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum NoticeRequestType: String {
-    case list = "list"
-    case article = "article"
+enum NoticeRequestType {
+    case list
+    case article
 }
 
 let DidReceiveNoticeListNotification: Notification.Name = Notification.Name("DidReceiveNoticeList")

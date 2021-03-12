@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum SearchRequestType: String {
+enum SearchRequestType {
     // list : 키워드로 검색하는 도서 리스트
     // book : 도서id로 검색하는 도서 개별 정보 (언젠가 추가 예정)
-    case list = "list"
-    case book = "book"
+    case list
+    case book
 }
 
 let DidReceiveSearchListNotification: Notification.Name = Notification.Name("DidReceiveSearchList")

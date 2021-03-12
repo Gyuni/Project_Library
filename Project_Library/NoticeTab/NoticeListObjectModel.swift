@@ -93,7 +93,6 @@ struct Notice: Codable {
     
     private static let dateReFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        // dateFormatter.dateFormat = "yyyy. MM. dd. HH:mm"
         dateFormatter.locale = Locale(identifier: "Ko_KR")
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short

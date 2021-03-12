@@ -114,7 +114,6 @@ class NoticeTabViewController: UIViewController, UITableViewDataSource, UITableV
                 page += 1
             }
             
-            // noticeTableView.reloadData()
         }
     }    
 }

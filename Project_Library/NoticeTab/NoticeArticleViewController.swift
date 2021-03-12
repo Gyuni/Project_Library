@@ -132,7 +132,7 @@ class NoticeArticleViewController: UIViewController, WKNavigationDelegate {
         
         guard let response: String = noti.userInfo?["noticeArticle"] as? String else { return }
         
-        let headerString = "<head><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></head><style>img{max-width:100%;height:auto !important;width:auto !important;} iframe, table{width:100% !important; height:auto !important;} body{margin:0px 16px 0px 16px; color: #505050; font-family: '-apple-system' !important; font-size: 14px; max-width: 100% !important} a{color:#00B4CF;}</style>"
+        let headerString = "<head><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></head><style>img{max-width:100%;height:auto !important;width:auto !important;} iframe, table{width:100% !important; height:auto !important;} body{margin:0px 16px 0px 16px; color: #505050; font-family: '-apple-system' !important; font-size: 14px; max-width: 100% !important} a{color:#0078E8;}</style>"
         
         DispatchQueue.main.async {
             self.contentWebView.loadHTMLString(headerString + response, baseURL: nil)
